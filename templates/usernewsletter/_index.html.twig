@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Hello UsernewsletterController!
+{% endblock %}
+
+{% block body %}
+  <div>
+    <!--<form class="d-flex flex-row mb-2 p-1 bg-white input-group">
+      <input type="email" 
+        class="form-control rounded border-0"
+        placeholder="Your Email" />
+      <button class="btn btn-secondary flex-shrink-0" type="submit">
+        Subscribe
+      </button>
+    </form>
+    <p class="fs-sm text-white text-opacity-75">
+      J'accepte de recevoir les newsletters Absolution !-->
+   <form    class="d-flex flex-row mb-2 p-1 bg-white input-group" = 
+     {{ form_start(form, { 'action': path('app_usernewsletter') }) }}
+       
+     
+       
+        <input
+    name="{{ field_name(form.email) }}" 
+  
+    placeholder="{{ field_label(form.email) }}"
+    class="form-control rounded border-0"
+  >
+
+
+
+   <!-- <input hidden
+    name = {#{field_choices(form.catUserNew, {'attr': {'VALUE': 'name'}})}#}
+    > !-->
+   
+
+   
+   
+    <button 
+    class="btn btn-secondary flex-shrink-0" type="submit">
+        Subscribe
+      </button>  
+
+      {{ form_end(form) }}
+ </form>
+    <p class="fs-sm text-white text-opacity-75">
+      J'accepte de recevoir les newsletters Absolution ! </p>
+  </div>
+{% endblock %}

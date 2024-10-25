@@ -1,0 +1,80 @@
+{% extends 'baseback.html .twig' %}
+
+{% block title %}Radio!
+{% endblock %}
+
+{% block body %}
+
+
+			<main>
+				<div class="container">
+
+      <h1 class="text-center">La Liste des émissions: </h1>
+       
+        <a href="{{ path('app_addradio') }}" class="btn btn-primary">Ajouter une emission</a><br>
+     <br><br>
+   <table class="table table-bordered border-primary">
+ 
+  <thead>
+    <tr>
+     <th scope="col">Titre</th>
+    <th scope="col">Date </th>
+    <th scope="col">Contenu</th>
+       <th scope="col">image</th>
+    <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+   {#% for anonnces in app.user.adverTs %#}
+   {%  for emissions in emission %}
+    <tr>
+      <td data-label="Titre">{{emissions.title }}</td>
+      <td data-label="Date">{{emissions.createdAt | time_diff(locale='fr') }} </td>
+      <td data-label="Contenu">{{emissions.discription|u.truncate(30, '...')|raw }}<br></td>
+      <td data-label="image"> <img src="{{ asset('/upload/galerie/' ~ emissions.image )}}"style="height: 150px; width: 130px;"  alt="Contemporary Dance"></td>
+      <td data-label="Action">
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Action
+</button>
+<div class="btn-group" role="group">
+<button id="btnGroupDrop4" type="button" class="btn btn-danger dropdown-toggle"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                  <div class="dropdown-menu" aria-labelledby="btnGroupDrop4">
+                    <a class="dropdown-item" href="{{ path('app_detail.radios',{'id': emissions.id}) }}">Modifier</a>
+                    <a class="dropdown-item"   href="{{path('app_emissionradio',{'id': emissions.id})}}" data-bs-toggle="modal" data-bs-target="#exampleModal2{{emissions.id}}" >Suprrimer</a>
+                    
+                  </div>
+                </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2{{emissions.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" id="useraction">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       Vous étre sur le point de supprimer l'anonnce : {{emissions.id}} titre,{{emissions.title}} ?
+       <br><img src="{{ asset('/upload/galerie/' ~ emissions.image )}}" 
+                            class="img-fluid" alt="..." style="height: 450px; width: 330px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+        	<a type="button" href="{{path('app_emissionradio',{'id': emissions.id})}}" class="btn btn-primary">Suprrimer</a>
+      </div>
+    </div>
+  </div>
+</div>
+      </td>
+    </tr>
+    
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+     </div>
+				</main>
+
+
+			{% endblock %}

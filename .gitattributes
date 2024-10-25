@@ -1,0 +1,17 @@
+# Convert all text files to use LF (Linux/macOS) endings on checkout
+* text=auto eol=lf
+
+# Force specific file types to use LF
+*.sh eol=lf
+*.yml eol=lf
+*.yaml eol=lf
+*.md eol=lf
+*.php eol=lf
+*.js eol=lf
+*.css eol=lf
+*.scss eol=lf
+*.html eol=lf
+*.twig eol=lf
+
+# Ensure Windows batch files retain CRLF
+*.bat eol=crlf

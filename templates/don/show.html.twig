@@ -1,0 +1,48 @@
+{% extends 'base_menu.html.twig' %}
+
+{% block title %}
+  Don!
+{% endblock %}
+
+{% block body %}
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="row justify-content-center pb-5 mb-3">
+        <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+          <h2 style="color:black;">
+            Je fais un don
+          </h2>
+        </div>
+      </div>
+      <div class="row">
+        {% for soutiens in soutien %}
+          <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+            <div class="block-7">
+              <div class="text-center p-4">
+                <h3 class="excerpt d-block">
+                  {{ soutiens.title }}
+                </h3>
+                <span class="price">
+                  <sup>€</sup> <span class="number">{{ soutiens.price }}</span>
+                  <sup></sup>
+                </span>
+
+                <a href="{{
+                  path(
+                    'app_aider.sqte',
+                    {
+                      id: soutiens.id
+                    }
+                  )
+                  }}"
+                  class=" d-block px-2 py-3"     style="background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);">
+                  Continuer
+                </a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

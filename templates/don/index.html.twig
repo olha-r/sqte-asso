@@ -1,0 +1,120 @@
+{% extends 'base_menu.html.twig' %}
+
+{% block title %}
+  Don!
+{% endblock %}
+
+{% block body %}
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="row justify-content-center pb-5 mb-3">
+        <div class="col-md-7 heading-section text-center ftco-animate fadeInUp ftco-animated">
+          <!-- <h2>Affordable Packages</h2>! -->
+          <h2 style="color:black;">
+            <span></span>JE FAIS UN DON UNE SEULE FOIS
+          </h2>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        {% if (items|length) > 0 %}
+          {# {% for soutiens in items %} #}
+          <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
+            <div class="block-7">
+              <div class="text-center p-4">
+                <h3 class="excerpt d-block">
+                  JE FAIS UN DON UNE SEULE FOIS
+                  {# {{ soutiens.product.title }} #}
+                </h3>
+                <span>
+                  <h2 style="color:black;">
+                    total à pays {{ total }}€
+                  </h2>
+                  {# <span class="number">{{ soutiens.product.price }}</span> #}
+                  {# <span>total à pays {{ total }}</span> #}
+                </span>
+                <!--                   <ul class="pricing-text mb-5">
+                            <li><a class="fa fa-check mr-2"></a>5 Dog Walk</li>
+                            <li><span class="fa fa-check mr-2"></span>3 Vet Visit</li>
+                            <li><span class="fa fa-check mr-2"></span>3 Pet Spa</li>
+                            <li><span class="fa fa-check mr-2"></span>Free Supports</li>
+                        </ul>!                  -->
+
+                {# <a href="#" class="btn btn-primary d-block px-2 py-3">
+                  Continuer
+                </a> #}
+              </div>
+            </div>
+          </div>
+          {# {% endfor %} #}
+
+          <div class="col-md-6 ftco-animate fadeInUp ftco-animated">
+            <div class="container">
+      <div class="text">
+        formulaire 
+      </div>
+   
+      <form action="#">
+         <div class="form-row">
+            <div class="input-data">
+               <input type="text" required>
+               <div class="underline"></div>
+               <label for=""> Nom complet</label>
+            </div>
+            <div class="input-data">
+               <input type="text" required>
+               <div class="underline"></div>
+               <label for="">Email</label>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="input-data">
+               <input type="text" required>
+               <div class="underline"></div>
+               <label for=""> Addresse</label>
+            </div>
+            <div class="input-data">
+               <input type="text" required>
+               <div class="underline"></div>
+               <label for="">Complément d'adresse</label>
+            </div>
+         
+         </div>
+             <div class="form-row">
+            <div class="input-data">
+               <input type="text" required>
+               <div class="underline"></div>
+               <label for=""> Code postal</label>
+            </div>
+            <div class="input-data">
+               <input type="text" required>
+               <div class="underline"></div>
+               <label for="">Ville</label>
+            </div>
+         
+         </div>
+         <div class="form-row">
+         <div class="input-data textarea">
+            <textarea rows="8" cols="80" required></textarea>
+            <br />
+            <div class="underline"></div>
+            <label for=""> message pour sqte</label>
+            <br />
+            <div class="form-row submit-btn">
+               <div class="input-data">
+                  <div class="inner"></div>
+                  <input type="submit" value="  Continuer">
+               </div>
+            </div>
+      </form>
+      </div>
+       <br> <br> <br> <br> <br> <br> <br> <br>
+        {% else %}
+          <p>
+            Surprise, c'est vide !
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+ 
+{% endblock %}
